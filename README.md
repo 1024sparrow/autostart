@@ -36,7 +36,6 @@ function start {
 }
 
 function stop {
-	echo stop
 	if [ -r $tt ]
 	then
 		kill $(cat $tt) && rm $tt
