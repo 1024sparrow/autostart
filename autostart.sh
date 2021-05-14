@@ -1,11 +1,23 @@
 #!/bin/bash
 
+readonly tt=/opt/boris/startBoris.sh.pid
+
 function start {
-	echo start
+	pushd /opt/boris
+		if [ ! -f $tt ]
+		then
+			su boris -c "./startBoris.sh" &
+			echo $! > startBoris.sh.pid
+		fi
+	popd
 }
 
 function stop {
 	echo stop
+	if [ -r $tt ]
+	then
+		kill $(cat $tt) && rm $tt
+	fi
 }
 
 function restart {
