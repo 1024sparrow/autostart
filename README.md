@@ -23,7 +23,7 @@ boris {start|stop|restart}
 ```bash
 #!/bin/bash
 
-readonly tt=/opt/boris/startBoris.sh.pid
+readonly tt=/run/lock/boris/startBoris.sh.pid
 
 function start {
 	pushd /opt/boris
