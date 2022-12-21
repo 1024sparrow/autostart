@@ -30,7 +30,7 @@ function start {
 		if [ ! -f $tt ]
 		then
 			su boris -c "./startBoris.sh" &
-			echo $! > startBoris.sh.pid
+			echo $! > $tt
 		fi
 	popd
 }
